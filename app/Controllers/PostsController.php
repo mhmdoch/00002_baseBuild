@@ -20,7 +20,9 @@ class PostsController extends z_controller
         // Retrives URL parameters (Offset, Length)
         $postId = $req->getParameters(0, 1);
 
-        $post = $req->getModel("Posts")->getPostById($postId);
+        $post = $req->getModel("Posts")->getById($postId);
+
+        dd($post);
 
         return $res->render("posts/view.php", [
             "posts" => $post

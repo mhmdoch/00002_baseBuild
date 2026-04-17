@@ -1,35 +1,42 @@
 <?php
 
-    // -----------------------------
-    // Do not change this file as it is the entrypoint for web requests.
-    // -----------------------------
 
-    $calledFromWebroot = true;
+function dd($value)
+{
+    echo "<pre>";
+    var_dump($value);
+    echo "</pre>";
 
-    chdir(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
+    die();
+}
+// -----------------------------
+// Do not change this file as it is the entrypoint for web requests.
+// -----------------------------
 
-    // Try multiple locations for the entry scripts
-    $entryScripts = [
-        "index.php",
-        "zubzet.php",
-        "zubzet",
-    ];
+$calledFromWebroot = true;
 
-    $entryScriptFound = false;
+chdir(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
 
-    foreach($entryScripts as $entryScript) {
-        if(!file_exists($entryScript)) continue;
+// Try multiple locations for the entry scripts
+$entryScripts = [
+    "index.php",
+    "zubzet.php",
+    "zubzet",
+];
 
-        require_once $entryScript;
-        $entryScriptFound = true;
-        break;
-    }
+$entryScriptFound = false;
 
-    // If no entry script is found, return a 500 error
-    if(!$entryScriptFound) {
-        http_response_code(500);
-        echo "No entry script found.";
-        exit(1);
-    }
+foreach ($entryScripts as $entryScript) {
+    if (!file_exists($entryScript)) continue;
 
-?>
+    require_once $entryScript;
+    $entryScriptFound = true;
+    break;
+}
+
+// If no entry script is found, return a 500 error
+if (!$entryScriptFound) {
+    http_response_code(500);
+    echo "No entry script found.";
+    exit(1);
+}

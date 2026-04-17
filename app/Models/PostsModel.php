@@ -10,7 +10,7 @@ class PostsModel extends z_model
     }
 
 
-    public function getPostById($postId): array
+    public function getById($postId): array
     {
         $sql = "SELECT *
                     FROM `posts`
