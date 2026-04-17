@@ -1,3 +1,4 @@
+-- Table: posts
 CREATE TABLE `posts` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `z_user_id` INT NOT NULL,
@@ -8,10 +9,5 @@ CREATE TABLE `posts` (
   `is_published` BOOLEAN DEFAULT FALSE,
   `published_at` DATETIME NULL,
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
-  CONSTRAINT `fk_posts_z_user` 
-    FOREIGN KEY (`z_user_id`) 
-    REFERENCES `users` (`z_user`) 
-    ON DELETE CASCADE 
-    ON UPDATE CASCADE
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP()
 );
