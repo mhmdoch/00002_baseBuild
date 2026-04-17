@@ -22,10 +22,8 @@ class PostsController extends z_controller
 
         $post = $req->getModel("Posts")->getById($postId);
 
-        dd($post);
-
         return $res->render("posts/view.php", [
-            "posts" => $post
+            "content" => $post['content']
         ]);
     }
 }

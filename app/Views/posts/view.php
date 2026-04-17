@@ -1,5 +1,5 @@
 <?php return ["body" => function ($opt) { ?>
-
-    hhkjh
-
+    <h1>
+        <?= $opt["content"] ?>
+    </h1>
 <?php }]; ?>
