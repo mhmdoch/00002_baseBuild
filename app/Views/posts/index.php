@@ -2,7 +2,7 @@
     <ul>
         <?php foreach ($opt["posts"] as $post) { ?>
             <li>
-                <?= e($post["content"]) ?>
+                <a href="/posts/view/<?= e($post["id"]) ?>"><?= e($post["content"]) ?></a>
             </li>
         <?php } ?>
     </ul>

@@ -3,6 +3,8 @@
 class PostsModel extends z_model
 {
 
+
+
     public function getPosts(): array
     {
         $sql = "SELECT * FROM `posts`";
