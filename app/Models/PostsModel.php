@@ -19,4 +19,13 @@ class PostsModel extends z_model
                     WHERE `id` = ?";
         return $this->exec($sql, "i", $postId)->resultToLine();
     }
+
+
+    public function deletePost($postId)
+    {
+        $sql = "DELETE 
+                    FROM `posts` 
+                    WHERE `id` = ?";
+        $this->exec($sql, "i", $postId);
+    }
 }

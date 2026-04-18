@@ -7,6 +7,17 @@ class PostsController extends z_controller
     {
         $posts = $req->getModel("Posts")->getPosts();
 
+
+        if ($req->isAction("delete-post")) {
+            //$req->checkPermission("post.delete");
+
+            $postId = $req->getPost("postId");
+
+            $req->getModel("Posts")->deletePost($postId);
+            return $res->success();
+        }
+
+
         return $res->render("posts/index", [
             "posts" => $posts,
         ]);
