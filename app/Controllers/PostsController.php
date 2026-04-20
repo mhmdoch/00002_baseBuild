@@ -41,7 +41,7 @@ class PostsController extends z_controller
     }
 
 
-
+    // works now and always worked, double saves were caused by Live Server
     public function action_add(Request $req, Response $res)
     {
         //$req->checkPermission("posts.add");
