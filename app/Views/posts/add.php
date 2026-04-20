@@ -4,7 +4,6 @@
 
     <div id="create_post"></div>
 
-
     <script>
         var posts_create_form = Z.Forms.create({
             dom: "create_post"
@@ -22,7 +21,6 @@
             value: "de",
             required: true
         });
-
         posts_create_form.createField({
             name: "title",
             type: "text",
