@@ -1,5 +1,7 @@
 <?php
 
+
+
 class PostsController extends z_controller
 {
 
@@ -36,5 +38,32 @@ class PostsController extends z_controller
         return $res->render("posts/view.php", [
             "post" => $post
         ]);
+    }
+
+
+
+    public function action_add(Request $req, Response $res)
+    {
+        //$req->checkPermission("posts.add");
+
+        if ($req->hasFormData()) {
+
+            $formResult = $req->validateForm([
+                (new FormField("title"))->required()->length(3, 255),
+                (new FormField("subtitle"))->length(0, 500),
+                (new FormField("language"))->required()->length(2, 2),
+                (new FormField("content"))->required()->length(5, 10000),
+                (new FormField("z_user_id"))->required(),
+            ]);
+
+
+            if ($formResult->hasErrors) {
+                return $res->formErrors($formResult->errors);
+            }
+
+            $res->insertDatabase("posts", $formResult);
+            return $res->success();
+        }
+        return $res->render("posts/add");
     }
 }

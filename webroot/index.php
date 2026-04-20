@@ -13,7 +13,6 @@ function dd($value)
 
 function dateTimeFormatter($dateTime)
 {
-
     $dateTime = new DateTimeImmutable($dateTime);
     return "{$dateTime->format('F j')}, {$dateTime->format('Y')}";
 }

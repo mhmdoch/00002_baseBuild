@@ -10,10 +10,6 @@
 
 
 
-
-
-
-
     <script>
         $(".delete-post").click(function() {
             var id = $(this).data("id");

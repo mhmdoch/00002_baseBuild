@@ -28,4 +28,13 @@ class PostsModel extends z_model
                     WHERE `id` = ?";
         $this->exec($sql, "i", $postId);
     }
+
+
+    public function addPost($title, $subtitle, $language, $content, $userId)
+    {
+        $sql = "INSERT INTO `posts` (`title`, `subtitle`, `language`, `content`, `z_user_id`, `is_published`) 
+            VALUES (?, ?, ?, ?, ?, 0)";
+
+        $this->exec($sql, "ssssi", $title, $subtitle, $language, $content, $userId);
+    }
 }
