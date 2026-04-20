@@ -9,6 +9,15 @@ function dd($value)
 
     die();
 }
+
+
+function dateTimeFormatter($dateTime)
+{
+
+    $dateTime = new DateTimeImmutable($dateTime);
+    return "{$dateTime->format('F j')}, {$dateTime->format('Y')}";
+}
+
 // -----------------------------
 // Do not change this file as it is the entrypoint for web requests.
 // -----------------------------
