@@ -21,6 +21,16 @@ class PostsModel extends z_model
         return $this->exec($sql, "i", $year)->resultToArray();
     }
 
+    public function getPostsByYearAndMonth($year, $month): array
+    {
+        $sql = "SELECT * 
+                FROM `posts`
+                JOIN `z_user` u ON z_user_id = u.id
+                WHERE YEAR(`published_at`) = ? and MONTH(`published_at`) = ? and `is_published` = 1
+                ORDER BY `published_at` DESC";
+        return $this->exec($sql, "ii", $year, $month)->resultToArray();
+    }
+
 
     public function getById($postId): array
     {
