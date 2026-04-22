@@ -29,11 +29,13 @@ class PostsController extends z_controller
     {
         // also klar, es fetched das $year, aber mhm, verstehe nicht, was es tut
         $year = $req->getParameters(0, 1);
-        $month = $req->getParameters(0, 1);
+        $month = $req->getParameters(1, 1);
 
-        $monthHelper = new DateTime($month);
-        $monthHelper = date_format($monthHelper, 'm');
-        $month = $monthHelper;
+
+        // offensichtlich, weiss ich nicht, was getParameters
+        // $monthHelper = new DateTime($month);
+        // $monthHelper = date_format($monthHelper, 'm');
+        // $month = $monthHelper;
 
         $posts = $req->getModel("Posts")->getPostsByYearAndMonth($year, $month);
 
