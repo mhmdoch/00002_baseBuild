@@ -16,6 +16,7 @@ class PostsModel extends z_model
     {
         $sql = "SELECT * 
                 FROM `posts`
+                JOIN `z_user` u ON z_user_id = u.id
                 WHERE YEAR(`published_at`) = ? and `is_published` = 1";
         return $this->exec($sql, "i", $year)->resultToArray();
     }

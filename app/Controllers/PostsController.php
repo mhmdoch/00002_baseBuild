@@ -27,7 +27,7 @@ class PostsController extends z_controller
 
     public function action_archive(Request $req, Response $res)
     {
-
+        // also klar, es fetched das $year, aber mhm, verstehe nicht, was es tut
         $year = $req->getParameters(0, 1);
 
         $posts = $req->getModel("Posts")->getPostsByYear($year);
@@ -36,8 +36,6 @@ class PostsController extends z_controller
             "posts" => $posts,
         ]);
     }
-
-
 
 
 
