@@ -15,8 +15,9 @@ class PostsModel extends z_model
     public function getById($postId): array
     {
         $sql = "SELECT *
-                    FROM `posts`
-                    WHERE `id` = ?";
+                FROM `posts`
+                JOIN `z_user` u ON z_user_id = u.id
+                WHERE `posts`.id = ?";
         return $this->exec($sql, "i", $postId)->resultToLine();
     }
 
