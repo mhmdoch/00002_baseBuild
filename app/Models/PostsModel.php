@@ -12,6 +12,15 @@ class PostsModel extends z_model
     }
 
 
+    public function getPostsByYear($year): array
+    {
+        $sql = "SELECT * 
+                FROM `posts`
+                WHERE YEAR(`published_at`) = ? and `is_published` = 1";
+        return $this->exec($sql, "i", $year)->resultToArray();
+    }
+
+
     public function getById($postId): array
     {
         $sql = "SELECT *

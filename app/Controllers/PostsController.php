@@ -25,6 +25,21 @@ class PostsController extends z_controller
         ]);
     }
 
+    public function action_archive(Request $req, Response $res)
+    {
+
+        $year = $req->getParameters(0, 1);
+
+        $posts = $req->getModel("Posts")->getPostsByYear($year);
+
+        return $res->render("posts/archive", [
+            "posts" => $posts,
+        ]);
+    }
+
+
+
+
 
     public function action_view(Request $req, Response $res)
     {
