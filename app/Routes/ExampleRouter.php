@@ -3,8 +3,8 @@
 use ZubZet\Framework\Routing\Route;
 
 // Example route:
-Route::get("/hello/world", [ExampleController::class, 'helloWorld']);
-
+Route::group("/", function () {})
+    ->middleware([DashboardController::class, "sidebar"]);
 
 
 // hier mache ich bei der posts/view auf jeden fall so ein aftermiddleware, was die 

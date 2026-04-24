@@ -4,7 +4,6 @@
 
 class PostsController extends z_controller
 {
-
     public function action_index(Request $req, Response $res)
     {
         $posts = $req->getModel("Posts")->getPosts();
@@ -25,17 +24,22 @@ class PostsController extends z_controller
         ]);
     }
 
+
+    // public function sidebarArchive(Request $req, Response $res)
+    // {
+    //     $sidebarArchive = $req->getModel("Posts")->getPosts();
+
+
+    //     return $res->render("sidebarArchive", [
+    //         "sidebarArchive" => $sidebarArchive,
+    //     ]);
+    // }
+
+
     public function action_archive(Request $req, Response $res)
     {
-        // also klar, es fetched das $year, aber mhm, verstehe nicht, was es tut
         $year = $req->getParameters(0, 1);
         $month = $req->getParameters(1, 1);
-
-
-        // offensichtlich, weiss ich nicht, was getParameters
-        // $monthHelper = new DateTime($month);
-        // $monthHelper = date_format($monthHelper, 'm');
-        // $month = $monthHelper;
 
         $posts = $req->getModel("Posts")->getPostsByYearAndMonth($year, $month);
 
