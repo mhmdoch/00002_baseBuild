@@ -3,7 +3,7 @@
 use ZubZet\Framework\Routing\Route;
 
 // Example route:
-Route::group("/", function () {})
+Route::group("", function () {})
     ->middleware([DashboardController::class, "sidebar"]);
 
 

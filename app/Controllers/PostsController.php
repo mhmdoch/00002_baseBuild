@@ -25,17 +25,6 @@ class PostsController extends z_controller
     }
 
 
-    // public function sidebarArchive(Request $req, Response $res)
-    // {
-    //     $sidebarArchive = $req->getModel("Posts")->getPosts();
-
-
-    //     return $res->render("sidebarArchive", [
-    //         "sidebarArchive" => $sidebarArchive,
-    //     ]);
-    // }
-
-
     public function action_archive(Request $req, Response $res)
     {
         $year = $req->getParameters(0, 1);
@@ -48,7 +37,6 @@ class PostsController extends z_controller
             "posts" => $posts,
         ]);
     }
-
 
 
     public function action_view(Request $req, Response $res)
@@ -66,7 +54,6 @@ class PostsController extends z_controller
     }
 
 
-    // works now and always worked, double saves were caused by Live Server
     public function action_add(Request $req, Response $res)
     {
         //$req->checkPermission("posts.add");

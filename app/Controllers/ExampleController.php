@@ -1,11 +1,10 @@
 <?php
 
-    class ExampleController extends z_controller {
+class ExampleController extends z_controller
+{
 
-        public function helloWorld(Request $req, Response $res) {
-            echo "Hello world!";
-        }
-
+    public function helloWorld(Request $req, Response $res)
+    {
+        echo "Hello world!";
     }
-
-?>
+}
