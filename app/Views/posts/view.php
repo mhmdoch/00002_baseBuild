@@ -5,6 +5,6 @@
 
         <p class="blog-post-meta"><?= dateTimeFormatter($opt['post']['published_at']) ?> by <a href="#"><?= $opt['post']['email'] ?></a></p>
         <hr>
-        <p><?= $opt['post']['content'] ?></p>
+        <p><?= bbcode($opt['post']['content']) ?></p>
     </div>
 <?php }]; ?>

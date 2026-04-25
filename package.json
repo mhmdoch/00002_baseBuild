@@ -16,8 +16,8 @@
     },
     "devDependencies": {
         "chai": "^6.0.1",
-        "cypress": "^15.2.0",
-        "mocha": "^11.7.2",
+        "cypress": "^4.2.0",
+        "mocha": "^11.3.0",
         "puppeteer": "^24.19.0",
         "unicode-substring": "^1.0.0"
     }
