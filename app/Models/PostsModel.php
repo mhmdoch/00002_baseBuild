@@ -5,7 +5,8 @@ class PostsModel extends z_model
 
     public function getPosts(): array
     {
-        $sql = "SELECT * FROM `posts` ORDER BY `published_at` DESC";
+        $sql = "SELECT * FROM `posts` JOIN `z_user` AS u
+                ON z_user_id = u.id ORDER BY `published_at` DESC LIMIT 10";
         return $this->exec($sql)->resultToArray();
     }
 

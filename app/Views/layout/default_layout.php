@@ -73,8 +73,8 @@
 
                 <div class="nav-scroller py-1 mb-0">
                     <nav class="nav d-flex justify-content-between">
+                        <a class="p-2 text-muted" href="/">Home</a>
                         <a class="p-2 text-muted" href="/posts/index">Posts</a>
-                        <a class="p-2 text-muted" href="#">Technology</a>
                         <a class="p-2 text-muted" href="#">Design</a>
                         <a class="p-2 text-muted" href="#">Culture</a>
                         <a class="p-2 text-muted" href="#">Business</a>
@@ -176,8 +176,8 @@
                                 <?php foreach ($opt["request"]->store["sideBarElements"] as $element) { ?>
                                     <li>
                                         <a href="<?= "$opt[root]posts/archive/$element[year]/$element[month]" ?>">
-                                            <?= $element["year"] ?>
                                             <?= $element["month_formatted"] ?>
+                                            <?= $element["year"] ?>
                                             (<?= $element["amount"] ?>)
                                         </a>
                                     </li>

@@ -5,7 +5,13 @@ class DashboardController extends z_controller
 
     public function action_index(Request $req, Response $res)
     {
-        return $res->render("example/dashboard");
+
+        $posts = $req->getModel("Posts")->getPosts();
+
+
+        return $res->render("example/dashboard", [
+            "posts" => $posts,
+        ]);
     }
 
     public function sidebar(Request $req, Response $res)
